@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -22,7 +23,11 @@ public class User {
     private String username;
 
     @NotBlank(message = "{password.not-blank}")
-    @Size(min = 8, max = 255)
+    @Size(min = 8, max = 255, message = "{password.size}")
+    @Pattern(
+            regexp = "^$|^\\S(?:.*\\S)?$",
+            message = "Password must not start or end with space"
+    )
     private String password;
 
 //    @OneToMany(mappedBy = "user")
