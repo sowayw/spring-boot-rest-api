@@ -30,8 +30,8 @@ cd spring-boot-rest-api
 ```
 
 #### Windows
-```cmd
-mvnw spring-boot:run
+```shell
+.\mvnw spring-boot:run
 ```
 
 4. Open Swagger UI to test endpoints: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
