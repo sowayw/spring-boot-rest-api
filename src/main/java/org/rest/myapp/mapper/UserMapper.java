@@ -1,5 +1,6 @@
 package org.rest.myapp.mapper;
 
+import org.rest.myapp.model.dto.UserCreateDto;
 import org.rest.myapp.model.dto.UserDto;
 import org.rest.myapp.model.entity.User;
 import org.springframework.stereotype.Component;
@@ -10,10 +11,9 @@ public class UserMapper {
         return new UserDto(user.getId(), user.getUsername());
     }
 
-    public User toEntity(UserDto userDto) {
+    public User toEntity(UserCreateDto userCreateDto) {
         User user = new User();
-        user.setId(userDto.uuid());
-        user.setUsername(userDto.username());
+        user.setUsername(userCreateDto.username());
 
         return user;
     }
