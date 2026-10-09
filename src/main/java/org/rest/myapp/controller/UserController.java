@@ -3,13 +3,11 @@ package org.rest.myapp.controller;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
 import org.rest.myapp.model.dto.UserChangePasswordDto;
 import org.rest.myapp.model.dto.UserCreateDto;
 import org.rest.myapp.model.dto.UserDto;
 import org.rest.myapp.model.dto.UserUpdateDto;
-import org.rest.myapp.model.entity.User;
 import org.rest.myapp.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,7 +43,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public UserDto createUser(@Valid @RequestBody UserCreateDto user) {
         return userService.createUser(user);
-    };
+    }
 
     @PutMapping("/{uuid}")
     public UserDto updateUser(@PathVariable UUID uuid, @Valid @RequestBody UserUpdateDto user) {
@@ -54,7 +52,7 @@ public class UserController {
 
     @PutMapping("/{uuid}/password")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateUserPassword (@PathVariable UUID uuid, @Valid @RequestBody UserChangePasswordDto user) {
+    public void updateUserPassword(@PathVariable UUID uuid, @Valid @RequestBody UserChangePasswordDto user) {
         userService.updateUserPassword(uuid, user);
     }
 
