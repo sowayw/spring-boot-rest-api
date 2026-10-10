@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.rest.myapp.exception.UserNotFoundException;
 import org.rest.myapp.mapper.UserMapper;
 import org.rest.myapp.model.dto.UserChangePasswordDto;
@@ -16,16 +17,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
-
-    public UserService(UserRepository userRepository, UserMapper userMapper, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.userMapper = userMapper;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Transactional
     public UserDto createUser(UserCreateDto userCreateDto) {

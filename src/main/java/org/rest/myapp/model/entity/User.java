@@ -10,9 +10,13 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Users")
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -33,30 +37,6 @@ public class User {
 //    @OneToMany(mappedBy = "user")
 //    @JsonBackeference
 //    private Set<Item> = new HashSet<>();
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 //    public Set<Item> getItems() {
 //        return Collections.unmodifiableSet(items);
